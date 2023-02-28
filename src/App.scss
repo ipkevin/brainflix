@@ -26,6 +26,7 @@ p {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: normal;
+  color: $col-text-primary;
   @include tablet-query {
     font-size: 0.875rem;
     line-height: 1.375rem;
@@ -75,10 +76,22 @@ p {
     border-radius: 0.25rem;
 
     padding: 0.75rem;
+    padding-left: 2rem;
 
-    &:active {
-      border-width: 2px;
-      border-color: $col-cta-primary;
+    background-image: url(./assets/icons/search.svg);
+    background-repeat: no-repeat;  
+    background-position: 0.5rem;
+    background-size: 1rem;
+    background-color: $col-form-field;
+
+    font-family: 'AvenirNext';
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: $col-text-primary;
+  
+    &:focus {
+      border:2px solid $col-cta-primary;
+      outline: none; // Removes chrome's automatic outline on focused input fields
     }
   }
   &__user-image {
@@ -99,4 +112,11 @@ p {
     }
   }
 
+}
+
+.video {
+
+  &__player {
+    width: 100%;
+  }
 }
