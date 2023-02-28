@@ -5,10 +5,10 @@
 
 * {
   box-sizing: border-box;
+  padding: 0; // If i put this in body, then h1 had top margin for some reason
+  margin: 0;
 }
 body {
-  padding: 0;
-  margin: 0;
   font-family: "AvenirNext", Arial, Helvetica, sans-serif;
 }
 h1 {
@@ -58,12 +58,11 @@ p {
   justify-content: center;
   align-content: space-evenly;
 
-  padding: 0 $space-mobile-between;
+  padding: $space-mobile-between;
 
   &__logo-wrapper {
     width: 100%;
     text-align: center;
-    padding-top: $space-mobile-between;
   }
   &__logo {
     //
@@ -118,5 +117,20 @@ p {
 
   &__player {
     width: 100%;
+  }
+}
+
+.flex-wrapper {
+  // border: 1px solid red;
+  padding: $space-mobile-between;
+}
+main {
+
+}
+.description {
+  // border: 1px solid orange;
+  &__title {
+    // border: 1px solid blue;
+    // margin: 0;
   }
 }
