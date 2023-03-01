@@ -2,6 +2,7 @@
 import './App.scss';
 import logo from './assets/logo/BrainFlix-logo.svg';
 import mohanPhoto from './assets/images/Mohan-muruge.jpg';
+import blankPhoto from "./assets/images/profile-blank.png";
 import uploadIcon from './assets/icons/upload.svg';
 import searchIcon from './assets/icons/search.svg';
 import likesIcon from './assets/icons/likes.svg';
@@ -37,18 +38,18 @@ function App() {
           <section className="comments">
             <p className="comments__count">3 comments</p>
             <div className="comments__wrapper">
-              <img className="comments__image" alt="profile photo" src={mohanPhoto} />
+              <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
               <div className="comments__content">
                 <p className="comments__form-subtitle">Join the conversation</p>
                 <form className="comments__form-wrapper">
                   <textarea className="comments__text-field" placeholder="Add a new comment"></textarea>
-                  <button className="comments__button">Comment</button>
+                  <button className="comments__button button">Comment</button>
                 </form>
               </div>
             </div>
             <ul className="comments__list">
               <li className="comments__wrapper">
-                <img className="comments__image" alt="profile photo" src="" />
+                <img className="comments__image" alt="profile photo" src={blankPhoto} />
                 <div className="comments__content">
                   <div className="comments__meta">
                     <p className="comments__author">Michael Lyons</p>
@@ -88,6 +89,7 @@ function App() {
           </section>
         </main>
         <aside className="videoList">
+          <p className="videoList__subtitle">Next Videos</p>
           <ul className="videoList__wrapper">
             <li className="videoList__item">
               <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
@@ -113,7 +115,7 @@ function App() {
             <li className="videoList__item">
               <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
               <div className="videoList__copy">
-                <p className="videoList__videotitle">Become A Travel Pro In One Easy Lesson</p>
+                <p className="videoList__videotitle">Become A Travel Pr</p>
                 <p className="videoList__author">Joe Bob Briggs</p>
               </div>
             </li>
