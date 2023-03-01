@@ -1,0 +1,26 @@
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/mixins' as *;
+
+.videoList {
+    &__item {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: $space-mobile-between;
+
+    }
+    &__thumb {
+        min-width: 6.6rem;
+        height: 3.7rem;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+    &__copy {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+    }
+    &__videotitle {
+        font-weight: 600;
+    }
+}

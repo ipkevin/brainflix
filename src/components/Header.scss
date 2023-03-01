@@ -1,0 +1,65 @@
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/mixins' as *;
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    gap: $space-mobile-between;
+    justify-content: center;
+    align-content: space-evenly;
+  
+    padding: $space-mobile-between;
+  
+    &__logo-wrapper {
+      width: 100%;
+      text-align: center;
+    }
+    &__logo {
+      //
+    }
+    &__search {
+      width: 50%;
+      flex-grow: 1;
+  
+      border: 1px solid $col-divider-line;
+      border-radius: 0.25rem;
+  
+      padding: 0.75rem;
+      padding-left: 2rem;
+  
+      background-image: url(../assets/icons/search.svg);
+      background-repeat: no-repeat;  
+      background-position: 0.5rem;
+      background-size: 1rem;
+      background-color: $col-form-field;
+  
+      font-family: 'AvenirNext';
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: $col-text-primary;
+    
+      &:focus {
+        border:2px solid $col-cta-primary;
+        outline: none; // Removes chrome's automatic outline on focused input fields
+      }
+    }
+    &__user-image {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      object-fit:cover;
+    }
+    &__button {
+      width: 100%;
+      position: relative;
+  
+      &-icon {
+        position: absolute;
+        left: 0.5rem;
+        top: 0.6rem;
+        height: 1.35rem;
+      }
+    }
+  
+  }

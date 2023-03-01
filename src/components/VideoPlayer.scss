@@ -1,0 +1,9 @@
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+
+.video {
+    &__player {
+      width: 100%;
+    }
+  }

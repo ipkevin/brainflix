@@ -1,0 +1,20 @@
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/mixins' as *;
+
+.videoList {
+    &__subtitle {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $col-text-secondary;
+      margin: $space-mobile-posthead 0;
+    }
+    
+    &__wrapper {
+      list-style:none;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: $space-mobile-between;
+    }
+  
+}

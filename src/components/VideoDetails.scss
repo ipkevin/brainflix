@@ -1,0 +1,61 @@
+
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+
+main {
+//
+}
+.description {
+  // border: 1px solid orange;
+  &__title {
+    font-weight: 600;
+    padding-bottom: $space-mobile-between;
+    border-bottom: 2px solid $col-divider-line;
+  }
+
+  &__credits {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: $space-mobile-between;
+
+    padding: $space-mobile-between 0;
+    border-bottom: 2px solid $col-divider-line;
+  }
+  &__author {
+    width: 40%;
+    font-weight: 600;
+  }
+  &__views {
+    width: 9rem;
+    color: $col-text-secondary;
+    &-icon {
+      vertical-align:text-bottom;
+      margin-right: 0.5rem;      
+    }
+  }
+  &__date {
+    width: 40%;
+    color: $col-text-secondary;
+  }
+  &__likes {
+    width: 9rem;
+    color: $col-text-secondary;
+
+    &-icon {
+      vertical-align: text-bottom;
+      margin-right: 0.5rem;      
+      
+    }
+    // &-icon::after {
+    //   content: 'blah';
+    //   font-weight: bold;
+    //   font-size: 2rem;
+    // }
+  }
+
+  &__body {
+    padding: $space-mobile-between 0;
+  }
+}
