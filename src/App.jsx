@@ -39,7 +39,7 @@ function App() {
             <div className="comments__wrapper">
               <img className="comments__image" alt="profile photo" src={mohanPhoto} />
               <div className="comments__content">
-                <h3 className="comments__form-subtitle">Join the conversation</h3>
+                <p className="comments__form-subtitle">Join the conversation</p>
                 <form className="comments__form-wrapper">
                   <textarea className="comments__text-field" placeholder="Add a new comment"></textarea>
                   <button className="comments__button">Comment</button>
@@ -86,10 +86,38 @@ function App() {
 
             </ul>
           </section>
-
         </main>
-        <aside>
-
+        <aside className="videoList">
+          <ul className="videoList__wrapper">
+            <li className="videoList__item">
+              <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
+              <div className="videoList__copy">
+                <p className="videoList__videotitle">Become A Travel Pro In One Easy Lesson</p>
+                <p className="videoList__author">Joe Bob Briggs</p>
+              </div>
+            </li>
+            <li className="videoList__item">
+              <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
+              <div className="videoList__copy">
+                <p className="videoList__videotitle">Become A Travel Pro In One Easy Lesson</p>
+                <p className="videoList__author">Joe Bob Briggs</p>
+              </div>
+            </li>
+            <li className="videoList__item">
+              <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
+              <div className="videoList__copy">
+                <p className="videoList__videotitle">Become A Travel Pro In One Easy Lesson</p>
+                <p className="videoList__author">Joe Bob Briggs</p>
+              </div>
+            </li>
+            <li className="videoList__item">
+              <img className="videoList__thumb" src={'https://i.imgur.com/5qyCZrD.jpg'} />
+              <div className="videoList__copy">
+                <p className="videoList__videotitle">Become A Travel Pro In One Easy Lesson</p>
+                <p className="videoList__author">Joe Bob Briggs</p>
+              </div>
+            </li>
+          </ul>
         </aside>
       </div>
     </>

@@ -180,3 +180,58 @@ main {
     padding: $space-mobile-between 0;
   }
 }
+
+
+.comments {
+
+  &__count {
+    font-weight: 600;
+  }
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+
+    padding: $space-mobile-between 0;
+    border-bottom: 2px solid $col-divider-line;
+  }
+  &__content {
+    padding-left: $space-mobile-between;
+  }
+  &__image {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    // background-color: $col-text-secondary;
+    object-fit:cover;
+  }
+  &__form-subtitle {
+    color: $col-text-secondary;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  &__form-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: $space-mobile-between;
+  }
+  &__text-field {
+
+  }
+  &__button {
+
+  }
+  &__meta {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+}
+
+.videoList {
+
+  &__thumb {
+    width: 3rem;
+    border-radius: 4px;
+  }
+}
