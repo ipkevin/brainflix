@@ -3,10 +3,11 @@ import mohanPhoto from '../assets/images/Mohan-muruge.jpg';
 
 import './CommentsArea.scss';
 
-export default function CommentsArea() {
+// expects props to have a selectedVideo object in it
+export default function CommentsArea(props) {
     return (
         <section className="comments">
-            <p className="comments__count">3 comments</p>
+            <p className="comments__count">{props.selectedVideo.comments.length} comments</p>
             <div className="comments__wrapper">
               <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
               <div className="comments__content">
@@ -19,9 +20,9 @@ export default function CommentsArea() {
             </div>
             <ul className="comments__list">
 
-            <Comment />
-            <Comment />
-            <Comment />
+              {props.selectedVideo.comments.map( element => {
+                return <Comment commentData={element} key={element.id} />
+              })}
 
             </ul>
         </section>
