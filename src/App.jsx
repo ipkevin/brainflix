@@ -17,8 +17,15 @@ function App() {
   // the currently selected video
   const [selectedVideo, setSelectedVideo] = useState(videoDetailsData[0]);
 
-  function videoListClickHandler() {
-    //
+  function videoListClickHandler(videoID) {
+    // this will setSelectedVideo to passed in id
+console.log("i'm in the clickhandler and this is the vidid: ",videoID)
+    let matchingVid = videoDetailsData.find(element => {
+      return (element.id === videoID);
+    })
+    console.log("the matching vid: ",matchingVid)
+    // prob should check if matchingVid is undefined
+    setSelectedVideo(matchingVid);
   }
 
   return (

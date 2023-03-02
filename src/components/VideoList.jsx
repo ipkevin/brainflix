@@ -10,7 +10,7 @@ export default function VideoList(props) {
             <p className="videoList__subtitle">Next Videos</p>
             <ul className="videoList__wrapper">
                 {props.videoListArr.map (videoItem => (
-                    <Video videoInfo={videoItem} key={videoItem.id} />    
+                    <Video videoInfo={videoItem} key={videoItem.id} videoListClickHandler={props.videoListClickHandler} />    
                     )
                 )}
             </ul>
