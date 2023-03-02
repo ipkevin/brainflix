@@ -3,15 +3,16 @@ import Video from './Video';
 
 import './VideoList.scss';
 
-export default function VideoList() {
+// Expecting that props has a videoListArr array that contains all of the video objects with minimal details
+export default function VideoList(props) {
     return (
         <aside className="videoList">
             <p className="videoList__subtitle">Next Videos</p>
             <ul className="videoList__wrapper">
-                <Video />
-                <Video />
-                <Video />
-                <Video />
+                {props.videoListArr.map (videoItem => (
+                    <Video videoInfo={videoItem} />    
+                    )
+                )}
             </ul>
         </aside>
     )
