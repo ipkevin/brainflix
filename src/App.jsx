@@ -11,19 +11,20 @@ import videoDetailsData from './assets/data/video-details.json';
 
 function App() {
   
-  // create state holding all of the brief vid data, for the vid list
+  // Holds the brief vid data, for the vid list
+  // Prob don't need to use a state for this since this is never altered directly
   const [videoListArr, setVideoListArr] = useState(videoData);
 
-  // the currently selected video
+  // State: The currently selected video
   const [selectedVideo, setSelectedVideo] = useState(videoDetailsData[0]);
 
+  // Handler function to setSelectedVideo to match the video of the passed in id
+  // Will be used as handler when videolist item is clicked
   function videoListClickHandler(videoID) {
-    // this will setSelectedVideo to passed in id
-console.log("i'm in the clickhandler and this is the vidid: ",videoID)
+    
     let matchingVid = videoDetailsData.find(element => {
       return (element.id === videoID);
     })
-    console.log("the matching vid: ",matchingVid)
     // prob should check if matchingVid is undefined
     setSelectedVideo(matchingVid);
   }
