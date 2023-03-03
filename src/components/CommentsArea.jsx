@@ -12,7 +12,7 @@ export default function CommentsArea(props) {
                 <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
                 <div className="comments__content">
                     <p className="comments__form-subtitle">Join the conversation</p>
-                    <form className="comments__form-wrapper" onSubmit={(event) => event.preventDefault()}>
+                    <form className="comments__form-wrapper" onSubmit={(event) => {event.preventDefault(); event.target.reset();}}>
                         <textarea className="comments__text-field" placeholder="Add a new comment"></textarea>
                         <button className="comments__button button">Comment</button>
                     </form>
