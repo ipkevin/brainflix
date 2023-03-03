@@ -43,8 +43,7 @@ p {
 
   text-transform: uppercase;
   font-family: "AvenirNext";
-  font-size: 0.75rem; //0.625rem;
-  //line-height: 1.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
 
   &:hover{
@@ -58,5 +57,13 @@ p {
   @include tablet-query {
     padding: $space-tablet-prehead;
     padding-top: $space-mobile-prehead;
+  }
+  @include desktop-query {
+    padding-top: 0;
+    padding-left: $space-desktop-sides;
+    padding-right: $space-desktop-sides;
+
+    display: flex;
+    flex-flow: row nowrap;
   }
 }

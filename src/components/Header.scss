@@ -18,6 +18,10 @@
       padding-left: $space-tablet-prehead;
       padding-right: $space-tablet-prehead;
     }
+    @include desktop-query {
+      padding-left: $space-desktop-sides;
+      padding-right: $space-desktop-sides;  
+    }
 
     &__logo-wrapper {
       width: 100%;

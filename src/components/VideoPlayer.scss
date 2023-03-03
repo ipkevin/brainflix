@@ -11,5 +11,9 @@
       @include tablet-query {
         height: 25rem;
       }
+
+      @include desktop-query {
+        height: 30.5rem;
+      }
     }
   }

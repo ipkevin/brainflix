@@ -3,12 +3,25 @@
 @use '../styles/partials/mixins' as *;
 
 .videoList {
+
+    @include desktop-query {
+      padding-left: $space-tablet-between;
+      border-left: 2px solid $col-divider-line;
+    }
     &__subtitle {
       text-transform: uppercase;
       font-weight: 600;
       font-size: 0.75rem;
       color: $col-text-secondary;
-      margin: $space-tablet-posthead 0;
+      
+      margin: $space-mobile-posthead 0;
+
+      @include tablet-query {
+        margin: $space-tablet-posthead 0;
+      }
+      @include desktop-query {
+        margin-bottom: $space-mobile-posthead;
+      }
     }
     
     &__wrapper {
