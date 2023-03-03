@@ -10,8 +10,8 @@
 
     }
     &__thumb {
-        min-width: 6.3rem;
-        height: 3.7rem;
+        width: 6.8rem;
+        height: 4rem;
         border-radius: 4px;
         object-fit: cover;
     }
@@ -19,6 +19,7 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
+        max-width: 11rem;
     }
     &__videotitle {
         font-weight: 600;

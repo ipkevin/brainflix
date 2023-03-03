@@ -5,5 +5,11 @@
 .video {
     &__player {
       width: 100%;
+      height: 56vw;
+      background-color: black;
+
+      @include tablet-query {
+        height: 25rem;
+      }
     }
   }
