@@ -52,10 +52,11 @@ p {
   }
 }
 
-
-
-
 .flex-wrapper {
-  // border: 1px solid red;
   padding: $space-mobile-between;
+
+  @include tablet-query {
+    padding: $space-tablet-prehead;
+    padding-top: $space-mobile-prehead;
+  }
 }

@@ -15,6 +15,16 @@
   
       padding: $space-mobile-between 0;
       border-bottom: 2px solid $col-divider-line;
+
+      @include tablet-query {
+        padding: $space-tablet-between 0;
+      }
+
+      &-form {
+        @include tablet-query {
+          padding-top: $space-mobile-between;
+        }
+      }
     }
     &__content {
       padding-left: $space-mobile-between;
@@ -42,6 +52,11 @@
       display: flex;
       flex-flow: column nowrap;
       gap: $space-mobile-between;
+
+      @include tablet-query {
+        flex-direction: row;
+        gap: $space-tablet-between;
+      }
   
     }
     &__text-field {
@@ -54,6 +69,12 @@
       min-height: 6rem;
       padding: 0.75rem;
 
+      @include tablet-query {
+        min-height: 1px;
+        height: 2.55rem;
+        flex-grow: 1;
+      }
+
       &::placeholder {
         font-family: "AvenirNext";
       }
@@ -65,6 +86,10 @@
       background-repeat: no-repeat;
       background-position-x: 0.7rem;
       background-position-y: 0.6rem;
+
+      @include tablet-query {
+        width: 10rem;
+      }
   
       &:hover {
         background-color: $col-cta-hover;
@@ -75,6 +100,10 @@
       flex-flow: row nowrap;
       justify-content: space-between;
       margin-bottom: $space-mobile-between;
+
+      @include tablet-query {
+        margin-bottom: 0.3rem;
+      }
     }
     &__author {
       font-weight: 600;

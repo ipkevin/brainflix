@@ -7,11 +7,19 @@ main {
 //
 }
 .description {
-  // border: 1px solid orange;
+
   &__title {
     font-weight: 600;
     padding-bottom: $space-mobile-between;
     border-bottom: 2px solid $col-divider-line;
+
+    @include tablet-query {
+      border-bottom: none;
+      padding-bottom: 0.3rem;
+
+      font-weight: bold;
+      line-height: 2.06rem;
+    }
   }
 
   &__credits {
@@ -22,10 +30,21 @@ main {
 
     padding: $space-mobile-between 0;
     border-bottom: 2px solid $col-divider-line;
+
+    @include tablet-query {
+      flex-wrap: nowrap;
+      gap: $space-tablet-between;
+      padding: 0.3rem 0;
+    }
+
   }
   &__author {
     width: 40%;
     font-weight: 600;
+
+    @include tablet-query {
+      width: auto;
+    }
   }
   &__views {
     width: 9rem;
@@ -34,28 +53,43 @@ main {
       vertical-align:text-bottom;
       margin-right: 0.5rem;      
     }
+
+    @include tablet-query {
+      order: 2;
+      width: auto;
+    }
   }
   &__date {
     width: 40%;
     color: $col-text-secondary;
+
+    @include tablet-query {
+      width: auto;
+      order: 1;
+      flex-grow: 1;
+    }
   }
   &__likes {
     width: 9rem;
     color: $col-text-secondary;
+
+    @include tablet-query {
+      order: 4;
+      width: auto;
+    }
 
     &-icon {
       vertical-align: text-bottom;
       margin-right: 0.5rem;      
       
     }
-    // &-icon::after {
-    //   content: 'blah';
-    //   font-weight: bold;
-    //   font-size: 2rem;
-    // }
   }
 
   &__body {
     padding: $space-mobile-between 0;
+
+    @include tablet-query {
+      padding: $space-tablet-between 0;
+    }
   }
 }

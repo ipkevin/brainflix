@@ -8,7 +8,7 @@
       font-weight: 600;
       font-size: 0.75rem;
       color: $col-text-secondary;
-      margin: $space-mobile-posthead 0;
+      margin: $space-tablet-posthead 0;
     }
     
     &__wrapper {
@@ -16,6 +16,10 @@
       display: flex;
       flex-flow: column nowrap;
       gap: $space-mobile-between;
+
+      @include tablet-query {
+        gap: $space-tablet-between;
+      }
     }
   
 }

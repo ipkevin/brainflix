@@ -10,14 +10,30 @@
     align-content: space-evenly;
   
     padding: $space-mobile-between;
-  
+
+    @include tablet-query {
+      justify-content: flex-end;
+      gap: $space-tablet-between;
+
+      padding-left: $space-tablet-prehead;
+      padding-right: $space-tablet-prehead;
+    }
+
     &__logo-wrapper {
       width: 100%;
       display: flex;
       justify-content: center;
+
+      @include tablet-query {
+        width: auto;
+        flex-grow: 1;
+        justify-content: flex-start;
+      }
     }
     &__logo {
-      //
+      @include tablet-query {
+        width: 7.1rem;
+      }
     }
     &__search {
       width: 50%;
@@ -39,17 +55,27 @@
       font-size: 0.75rem;
       font-weight: normal;
       color: $col-text-primary;
+
+      @include tablet-query {
+        flex-grow: 0;
+        width: 15rem;
+      }
     
       &:focus {
         border:2px solid $col-cta-primary;
         outline: none; // Removes chrome's automatic outline on focused input fields
       }
+
     }
     &__user-image {
       width: 2.2rem;
       height: 2.2rem;
       border-radius: 50%;
       object-fit:cover;
+
+      @include tablet-query {
+        order: 4;
+      }
     }
     &__button {
       width: 100%;
@@ -60,6 +86,10 @@
         left: 0.5rem;
         top: 0.6rem;
         height: 1.35rem;
+      }
+
+      @include tablet-query {
+        width: 10rem;
       }
     }
   
