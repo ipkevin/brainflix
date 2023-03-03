@@ -15,5 +15,7 @@ $space-desktop-sides: 8.4rem;
 
 $padding-tablet-button: 2rem;
 
-$max-content-width: 1800px;
+$max-content-width: 112.5rem; // 1800px
+
+$max-video-width-desktop: $max-content-width - calc($space-desktop-sides *1.5);
 
