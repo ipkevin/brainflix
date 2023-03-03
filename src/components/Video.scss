@@ -27,7 +27,7 @@
         max-width: 11rem;
 
         @include desktop-query {
-            width: 100%;
+            min-width: 10rem;
         }
     }
     &__videotitle {

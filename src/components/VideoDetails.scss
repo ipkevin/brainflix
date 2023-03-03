@@ -20,6 +20,10 @@ main {
       font-weight: bold;
       line-height: 2.06rem;
     }
+    @include desktop-query {
+      padding-right: $space-tablet-between;
+      padding-top: $space-tablet-prehead;
+    }
   }
 
   &__credits {
@@ -35,6 +39,9 @@ main {
       flex-wrap: nowrap;
       gap: $space-tablet-between;
       padding: 0.3rem 0;
+    }
+    @include desktop-query {
+      padding-right: $space-tablet-between;
     }
 
   }
@@ -90,6 +97,10 @@ main {
 
     @include tablet-query {
       padding: $space-tablet-between 0;
+    }
+    @include desktop-query {
+      padding-right: $space-tablet-between;
+      padding-bottom: $space-tablet-prehead + 1rem;
     }
   }
 }

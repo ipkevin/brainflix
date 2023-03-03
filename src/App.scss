@@ -59,11 +59,14 @@ p {
     padding-top: $space-mobile-prehead;
   }
   @include desktop-query {
-    padding-top: 0;
-    padding-left: $space-desktop-sides;
-    padding-right: $space-desktop-sides;
+    padding: 0 $space-desktop-sides;
+
 
     display: flex;
     flex-flow: row nowrap;
+
+
+    max-width: $max-content-width;
+    margin: 0 auto;
   }
 }

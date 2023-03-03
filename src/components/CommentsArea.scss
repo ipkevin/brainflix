@@ -20,6 +20,11 @@
         padding: $space-tablet-between 0;
       }
 
+      @include desktop-query {
+        padding-right: $space-tablet-between;
+        padding-left: $space-mobile-between - 0.3rem;
+      }
+
       &-form {
         @include tablet-query {
           padding-top: $space-mobile-between;
@@ -36,6 +41,11 @@
       border-radius: 50%;
       background-color: $col-divider-line;
       object-fit:cover;
+
+      @include desktop-query {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
   
       &--form {
         margin-top: 1.1rem;

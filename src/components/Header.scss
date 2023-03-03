@@ -20,7 +20,10 @@
     }
     @include desktop-query {
       padding-left: $space-desktop-sides;
-      padding-right: $space-desktop-sides;  
+      padding-right: $space-desktop-sides;
+      
+      max-width: $max-content-width;
+      margin: 0 auto;
     }
 
     &__logo-wrapper {
@@ -80,6 +83,11 @@
       @include tablet-query {
         order: 4;
       }
+      @include desktop-query {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: $space-mobile-between - 0.3rem;
+      }
     }
     &__button {
       width: 100%;
@@ -94,6 +102,9 @@
 
       @include tablet-query {
         width: 10rem;
+      }
+      @include desktop-query {
+        width: 9.2rem;
       }
     }
   
