@@ -12,7 +12,7 @@ export default function VideoList(props) {
 
     return (
         <aside className="videoList">
-            <p className="videoList__subtitle">Next Videos</p>
+            <h2 className="videoList__subtitle">Next Videos</h2>
             <ul className="videoList__wrapper">
                 {filteredArr.map((videoItem) => (
                     <Video videoInfo={videoItem} key={videoItem.id} videoListClickHandler={props.videoListClickHandler} />

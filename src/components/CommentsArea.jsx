@@ -7,7 +7,7 @@ import "./CommentsArea.scss";
 export default function CommentsArea(props) {
     return (
         <section className="comments">
-            <p className="comments__count">{props.selectedVideo.comments.length} comments</p>
+            <h2 className="comments__count">{props.selectedVideo.comments.length} comments</h2>
             <div className="comments__wrapper comments__wrapper-form">
                 <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
                 <div className="comments__content">
