@@ -7,7 +7,7 @@ export default function VideoList(props) {
     // filter the video array to remove the currently selected video
     let currID = props.selectedVideo.id;
     const filteredArr = props.videoListArr.filter((element) => {
-        return element.id != currID;
+        return element.id !== currID;
     });
 
     return (

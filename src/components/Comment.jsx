@@ -6,7 +6,6 @@ const convertDate = function (dateIn) {
     let currDate = new Date();
     let commDate = new Date(dateIn);
     const elapsed = currDate - commDate;
-    console.log(elapsed);
     const oneSec = 1000;
     const oneMin = 60 * oneSec;
     const oneHour = 60 * oneMin;
