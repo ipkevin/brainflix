@@ -107,20 +107,5 @@
         background-color: $col-cta-hover;
       }
     }
-    &__meta {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      margin-bottom: $space-mobile-between;
 
-      @include tablet-query {
-        margin-bottom: 0.3rem;
-      }
-    }
-    &__author {
-      font-weight: 600;
-    }
-    &__date {
-      color: $col-text-secondary;
-    }
   }

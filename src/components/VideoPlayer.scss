@@ -8,7 +8,8 @@
 
     &__player {
       width: 100%;
-      height: 56vw;
+      aspect-ratio: 1.8;
+      // height: 56vw;
 
 
       @include tablet-query {
