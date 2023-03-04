@@ -12,10 +12,7 @@ export default function Header() {
             </div>
             <input className="header__search" type="text" name="headerSearch" id="headerSearch" placeholder="Search"></input>
             <img className="header__user-image" src={mohanPhoto} alt="user photo" />
-            <button className="header__button button">
-                Upload
-                <img className="header__button-icon" src={uploadIcon} />
-            </button>
+            <button className="header__button button">Upload</button>
         </header>
     );
 }
