@@ -29,7 +29,6 @@ export default function Comment(props) {
             <div className="comments__content">
                 <div className="comments__meta">
                     <p className="comments__author">{props.commentData.name}</p>
-                    {/* <p className="comments__date">{new Date(props.commentData.timestamp).toLocaleDateString()}</p> */}
                     <p className="comments__date">{convertDate(props.commentData.timestamp)}</p>
                 </div>
                 <p className="comments__text">{props.commentData.comment}</p>
