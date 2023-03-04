@@ -1,6 +1,6 @@
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/mixins' as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/mixins" as *;
 
 .header {
     display: flex;
@@ -8,101 +8,99 @@
     gap: $space-mobile-between;
     justify-content: center;
     align-content: space-evenly;
-  
+
     padding: $space-mobile-between;
 
     @include tablet-query {
-      justify-content: flex-end;
-      gap: $space-tablet-between;
+        justify-content: flex-end;
+        gap: $space-tablet-between;
 
-      padding-left: $space-tablet-prehead;
-      padding-right: $space-tablet-prehead;
+        padding-left: $space-tablet-prehead;
+        padding-right: $space-tablet-prehead;
     }
     @include desktop-query {
-      padding-left: $space-desktop-sides;
-      padding-right: $space-desktop-sides;
-      
-      max-width: $max-content-width;
-      margin: 0 auto;
+        padding-left: $space-desktop-sides;
+        padding-right: $space-desktop-sides;
+
+        max-width: $max-content-width;
+        margin: 0 auto;
     }
 
     &__logo-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
-      @include tablet-query {
-        width: auto;
-        flex-grow: 1;
-        justify-content: flex-start;
-      }
+        @include tablet-query {
+            width: auto;
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
     }
     &__logo {
-      @include tablet-query {
-        width: 7.1rem;
-      }
+        @include tablet-query {
+            width: 7.1rem;
+        }
     }
     &__search {
-      width: 50%;
-      flex-grow: 1;
-  
-      border: 1px solid $col-divider-line;
-      border-radius: 0.25rem;
-  
-      padding: 0.75rem;
-      padding-left: 2rem;
-  
-      background-image: url(../assets/icons/search.svg);
-      background-repeat: no-repeat;  
-      background-position: 0.5rem;
-      background-size: 1rem;
-      background-color: $col-form-field;
-  
-      font-family: 'AvenirNext';
-      font-size: 0.75rem;
-      font-weight: normal;
-      color: $col-text-primary;
+        width: 50%;
+        flex-grow: 1;
 
-      @include tablet-query {
-        flex-grow: 0;
-        width: 15rem;
-      }
-    
-      &:focus {
-        border:2px solid $col-cta-primary;
-        outline: none; // Removes chrome's automatic outline on focused input fields
-      }
+        border: 1px solid $col-divider-line;
+        border-radius: 0.25rem;
 
+        padding: 0.75rem;
+        padding-left: 2rem;
+
+        background-image: url(../assets/icons/search.svg);
+        background-repeat: no-repeat;
+        background-position: 0.5rem;
+        background-size: 1rem;
+        background-color: $col-form-field;
+
+        font-family: "AvenirNext";
+        font-size: 0.75rem;
+        font-weight: normal;
+        color: $col-text-primary;
+
+        @include tablet-query {
+            flex-grow: 0;
+            width: 15rem;
+        }
+
+        &:focus {
+            border: 2px solid $col-cta-primary;
+            outline: none; // Removes chrome's automatic outline on focused input fields
+        }
     }
     &__user-image {
-      width: 2.2rem;
-      height: 2.2rem;
-      border-radius: 50%;
-      object-fit:cover;
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 50%;
+        object-fit: cover;
 
-      @include tablet-query {
-        order: 4;
-      }
-      @include desktop-query {
-        width: 2.5rem;
-        height: 2.5rem;
-        margin-left: $space-mobile-between - 0.3rem;
-      }
+        @include tablet-query {
+            order: 4;
+        }
+        @include desktop-query {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-left: $space-mobile-between - 0.3rem;
+        }
     }
     &__button {
-      width: 100%;
+        width: 100%;
 
-      background-image: url(../assets/icons/upload.svg);
-      background-repeat: no-repeat;
-      background-position-x: 0.5rem;
-      background-position-y: 0.5rem;
+        background-image: url(../assets/icons/upload.svg);
+        background-repeat: no-repeat;
+        background-position-x: 0.5rem;
+        background-position-y: 0.5rem;
 
-      @include tablet-query {
-        width: 10rem;
-      }
-      @include desktop-query {
-        width: 9.2rem;
-      }
+        @include tablet-query {
+            width: 10rem;
+        }
+        @include desktop-query {
+            width: 9.2rem;
+        }
     }
-  
-  }
+}

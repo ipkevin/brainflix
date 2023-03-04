@@ -1,8 +1,8 @@
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/mixins' as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/mixins" as *;
 
-.comments{
+.comments {
     &__meta {
         display: flex;
         flex-flow: row nowrap;
@@ -10,7 +10,7 @@
         margin-bottom: $space-mobile-between;
 
         @include tablet-query {
-        margin-bottom: 0.3rem;
+            margin-bottom: 0.3rem;
         }
     }
     &__author {

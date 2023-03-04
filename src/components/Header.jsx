@@ -1,6 +1,5 @@
 import logo from "../assets/logo/BrainFlix-logo.svg";
 import mohanPhoto from "../assets/images/Mohan-muruge.jpg";
-import uploadIcon from "../assets/icons/upload.svg";
 
 import "./Header.scss";
 

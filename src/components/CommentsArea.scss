@@ -1,111 +1,108 @@
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/mixins' as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/mixins" as *;
 
 .comments {
-
     &__count {
-      font-weight: 600;
-      text-transform: capitalize;
+        font-weight: 600;
+        text-transform: capitalize;
     }
     &__wrapper {
-      display: flex;
-      flex-flow: row nowrap;
-      list-style: none;
-  
-      padding: $space-mobile-between 0;
-      border-bottom: 2px solid $col-divider-line;
+        display: flex;
+        flex-flow: row nowrap;
+        list-style: none;
 
-      @include tablet-query {
-        padding: $space-tablet-between 0;
-      }
+        padding: $space-mobile-between 0;
+        border-bottom: 2px solid $col-divider-line;
 
-      @include desktop-query {
-        padding-right: $space-tablet-between;
-        padding-left: $space-mobile-between - 0.3rem;
-      }
-
-      &-form {
         @include tablet-query {
-          padding-top: $space-mobile-between;
+            padding: $space-tablet-between 0;
         }
-      }
+
+        @include desktop-query {
+            padding-right: $space-tablet-between;
+            padding-left: $space-mobile-between - 0.3rem;
+        }
+
+        &-form {
+            @include tablet-query {
+                padding-top: $space-mobile-between;
+            }
+        }
     }
     &__content {
-      padding-left: $space-mobile-between;
-      width: 100%;
+        padding-left: $space-mobile-between;
+        width: 100%;
     }
     &__image {
-      width: 2.3rem;
-      height: 2.3rem;
-      border-radius: 50%;
-      background-color: $col-divider-line;
-      object-fit:cover;
+        width: 2.3rem;
+        height: 2.3rem;
+        border-radius: 50%;
+        background-color: $col-divider-line;
+        object-fit: cover;
 
-      @include desktop-query {
-        width: 2.5rem;
-        height: 2.5rem;
-      }
-  
-      &--form {
-        margin-top: 1.1rem;
-      }
+        @include desktop-query {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        &--form {
+            margin-top: 1.1rem;
+        }
     }
     &__form-subtitle {
-      color: $col-text-secondary;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 0.75rem;
-      margin-bottom: 0.1rem;
+        color: $col-text-secondary;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.75rem;
+        margin-bottom: 0.1rem;
     }
     &__form-wrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      gap: $space-mobile-between;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $space-mobile-between;
 
-      @include tablet-query {
-        flex-direction: row;
-        gap: $space-tablet-between;
-      }
-  
+        @include tablet-query {
+            flex-direction: row;
+            gap: $space-tablet-between;
+        }
     }
     &__text-field {
-      outline:none;
-      border: 2px solid $col-divider-line;
-      border-radius: 0.25rem;
-  
-      background-color: $col-form-field;
-  
-      min-height: 6rem;
-      padding: 0.75rem;
+        outline: none;
+        border: 2px solid $col-divider-line;
+        border-radius: 0.25rem;
 
-      @include tablet-query {
-        min-height: 1px;
-        height: 2.55rem;
-        flex-grow: 1;
+        background-color: $col-form-field;
 
-        overflow: hidden;
-      }
+        min-height: 6rem;
+        padding: 0.75rem;
 
-      &::placeholder {
-        font-family: "AvenirNext";
-      }
+        @include tablet-query {
+            min-height: 1px;
+            height: 2.55rem;
+            flex-grow: 1;
+
+            overflow: hidden;
+        }
+
+        &::placeholder {
+            font-family: "AvenirNext";
+        }
     }
     &__button {
-      width: 100%;
-      background-image: url('../assets/icons/add_comment.svg');
-      background-size: 1.25rem;
-      background-repeat: no-repeat;
-      background-position-x: 0.7rem;
-      background-position-y: 0.6rem;
+        width: 100%;
+        background-image: url("../assets/icons/add_comment.svg");
+        background-size: 1.25rem;
+        background-repeat: no-repeat;
+        background-position-x: 0.7rem;
+        background-position-y: 0.6rem;
 
-      @include tablet-query {
-        width: 10rem;
-      }
-  
-      &:hover {
-        background-color: $col-cta-hover;
-      }
+        @include tablet-query {
+            width: 10rem;
+        }
+
+        &:hover {
+            background-color: $col-cta-hover;
+        }
     }
-
-  }
+}

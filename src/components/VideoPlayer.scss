@@ -1,25 +1,24 @@
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
 
 .video {
     background-color: black;
     text-align: center;
 
     &__player {
-      width: 100%;
-      aspect-ratio: 1.8;
-      // height: 56vw;
+        width: 100%;
+        aspect-ratio: 1.8;
+        // height: 56vw;
 
+        @include tablet-query {
+            height: 25rem;
+        }
 
-      @include tablet-query {
-        height: 25rem;
-      }
-
-      @include desktop-query {
-        height: 30.5rem;
-        max-width: $max-video-width-desktop; 
-        margin: 0 auto;
-      }
+        @include desktop-query {
+            height: 30.5rem;
+            max-width: $max-video-width-desktop;
+            margin: 0 auto;
+        }
     }
-  }
+}

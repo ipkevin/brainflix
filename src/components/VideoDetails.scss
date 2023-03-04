@@ -1,106 +1,99 @@
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
 
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
-
-main {
-//
-}
 .description {
+    &__title {
+        font-weight: 600;
+        padding-bottom: $space-mobile-between;
+        border-bottom: 2px solid $col-divider-line;
 
-  &__title {
-    font-weight: 600;
-    padding-bottom: $space-mobile-between;
-    border-bottom: 2px solid $col-divider-line;
+        @include tablet-query {
+            border-bottom: none;
+            padding-bottom: 0.3rem;
 
-    @include tablet-query {
-      border-bottom: none;
-      padding-bottom: 0.3rem;
-
-      font-weight: bold;
-      line-height: 2.06rem;
-    }
-    @include desktop-query {
-      padding-right: $space-tablet-between;
-      padding-top: $space-tablet-prehead;
-    }
-  }
-
-  &__credits {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    gap: $space-mobile-between;
-
-    padding: $space-mobile-between 0;
-    border-bottom: 2px solid $col-divider-line;
-
-    @include tablet-query {
-      flex-wrap: nowrap;
-      gap: $space-tablet-between;
-      padding: 0.3rem 0;
-    }
-    @include desktop-query {
-      padding-right: $space-tablet-between;
+            font-weight: bold;
+            line-height: 2.06rem;
+        }
+        @include desktop-query {
+            padding-right: $space-tablet-between;
+            padding-top: $space-tablet-prehead;
+        }
     }
 
-  }
-  &__author {
-    width: 40%;
-    font-weight: 600;
+    &__credits {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: $space-mobile-between;
 
-    @include tablet-query {
-      width: auto;
+        padding: $space-mobile-between 0;
+        border-bottom: 2px solid $col-divider-line;
+
+        @include tablet-query {
+            flex-wrap: nowrap;
+            gap: $space-tablet-between;
+            padding: 0.3rem 0;
+        }
+        @include desktop-query {
+            padding-right: $space-tablet-between;
+        }
     }
-  }
-  &__views {
-    width: 9rem;
-    color: $col-text-secondary;
-    &-icon {
-      vertical-align:text-bottom;
-      margin-right: 0.5rem;      
+    &__author {
+        width: 40%;
+        font-weight: 600;
+
+        @include tablet-query {
+            width: auto;
+        }
+    }
+    &__views {
+        width: 9rem;
+        color: $col-text-secondary;
+        &-icon {
+            vertical-align: text-bottom;
+            margin-right: 0.5rem;
+        }
+
+        @include tablet-query {
+            order: 2;
+            width: auto;
+        }
+    }
+    &__date {
+        width: 40%;
+        color: $col-text-secondary;
+
+        @include tablet-query {
+            width: auto;
+            order: 1;
+            flex-grow: 1;
+        }
+    }
+    &__likes {
+        width: 9rem;
+        color: $col-text-secondary;
+
+        @include tablet-query {
+            order: 4;
+            width: auto;
+        }
+
+        &-icon {
+            vertical-align: text-bottom;
+            margin-right: 0.5rem;
+        }
     }
 
-    @include tablet-query {
-      order: 2;
-      width: auto;
-    }
-  }
-  &__date {
-    width: 40%;
-    color: $col-text-secondary;
+    &__body {
+        padding: $space-mobile-between 0;
 
-    @include tablet-query {
-      width: auto;
-      order: 1;
-      flex-grow: 1;
+        @include tablet-query {
+            padding: $space-tablet-between 0;
+        }
+        @include desktop-query {
+            padding-right: $space-tablet-between;
+            padding-bottom: $space-tablet-prehead + 1rem;
+        }
     }
-  }
-  &__likes {
-    width: 9rem;
-    color: $col-text-secondary;
-
-    @include tablet-query {
-      order: 4;
-      width: auto;
-    }
-
-    &-icon {
-      vertical-align: text-bottom;
-      margin-right: 0.5rem;      
-      
-    }
-  }
-
-  &__body {
-    padding: $space-mobile-between 0;
-
-    @include tablet-query {
-      padding: $space-tablet-between 0;
-    }
-    @include desktop-query {
-      padding-right: $space-tablet-between;
-      padding-bottom: $space-tablet-prehead + 1rem;
-    }
-  }
 }

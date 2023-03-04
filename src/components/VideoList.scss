@@ -1,39 +1,37 @@
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/colors' as *;
-@use '../styles/partials/mixins' as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/colors" as *;
+@use "../styles/partials/mixins" as *;
 
 .videoList {
-
     @include desktop-query {
-      padding-left: $space-tablet-between;
-      padding-bottom: calc($space-tablet-prehead *2);
-      border-left: 2px solid $col-divider-line;
+        padding-left: $space-tablet-between;
+        padding-bottom: calc($space-tablet-prehead * 2);
+        border-left: 2px solid $col-divider-line;
     }
     &__subtitle {
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 0.75rem;
-      color: $col-text-secondary;
-      
-      margin: $space-mobile-posthead 0;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: $col-text-secondary;
 
-      @include tablet-query {
-        margin: $space-tablet-posthead 0;
-      }
-      @include desktop-query {
-        margin-bottom: $space-mobile-posthead;
-      }
+        margin: $space-mobile-posthead 0;
+
+        @include tablet-query {
+            margin: $space-tablet-posthead 0;
+        }
+        @include desktop-query {
+            margin-bottom: $space-mobile-posthead;
+        }
     }
-    
+
     &__wrapper {
-      list-style:none;
-      display: flex;
-      flex-flow: column nowrap;
-      gap: $space-mobile-between;
+        list-style: none;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $space-mobile-between;
 
-      @include tablet-query {
-        gap: $space-tablet-between;
-      }
+        @include tablet-query {
+            gap: $space-tablet-between;
+        }
     }
-  
 }
