@@ -6,6 +6,10 @@
     &__count {
         font-weight: 600;
         text-transform: capitalize;
+        
+        @include desktop-query {
+            font-weight: bold;
+        }
     }
     &__wrapper {
         display: flex;
@@ -41,13 +45,17 @@
         background-color: $col-divider-line;
         object-fit: cover;
 
-        @include desktop-query {
+        @include tablet-query {
             width: 2.5rem;
             height: 2.5rem;
         }
 
         &--form {
             margin-top: 1.1rem;
+
+            @include tablet-query {
+                margin-top: 1.55rem;
+            }
         }
     }
     &__form-subtitle {
