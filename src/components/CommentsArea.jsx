@@ -19,10 +19,10 @@ export default function CommentsArea(props) {
                 </div>
             </div>
             <ul className="comments__list">
-                {props.selectedVideo.comments.map((element) => {
+                {Object.keys(props).length > 0 && props.selectedVideo.comments.map((element) => {
                     return <Comment commentData={element} key={element.id} />;
                 })}
             </ul>
         </section>
-    );
+        );
 }
