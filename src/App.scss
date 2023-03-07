@@ -74,4 +74,12 @@ h3 {
         max-width: $max-content-width;
         margin: 0 auto;
     }
+
+    &--underlined {
+        border-top: 2px solid $col-divider-line;
+
+        @include tablet-query {
+            padding-bottom: $space-tablet-between;
+        }
+    }
 }

@@ -7,8 +7,6 @@ import UploadPage from './pages/UploadPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-
-
     return (
         <BrowserRouter>
             <Header />

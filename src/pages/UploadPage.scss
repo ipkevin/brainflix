@@ -1,10 +1,157 @@
+@use '../styles/partials/colors' as *;
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+
 .uploadform {
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
 
+    @include desktop-query  {
+        flex-flow: row wrap;
+        gap: $space-tablet-between;
+    }
     &__wrapper {
         margin: 0 auto;
+        width: 100%;
+
+    }
+    &__title {
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: $space-tablet-between;
+
+        @include tablet-query{
+            font-weight: bold;
+            padding-bottom: $space-tablet-between;
+            border-bottom: 2px solid $col-divider-line;
+            margin-bottom: $space-tablet-prehead;
+        }
+        @include desktop-query{
+            margin-top: $space-tablet-prehead;
+            margin-bottom: $space-tablet-between;
+        }
+    }
+
+    &__group-thumb {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+
+        margin-bottom: $space-tablet-between;
+
+        @include desktop-query {
+            margin-bottom: 0;
+        }
+    }
+    &__group-inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        
+        margin-bottom: $space-tablet-between;
+
+        @include desktop-query {
+            flex-grow: 1;
+            min-width: 60%;
+            margin-bottom: 0;
+        }
+
+    }
+    &__group-submit {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet-query {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items:baseline;
+            gap: 5rem;
+            border-top: 2px solid $col-divider-line;
+            padding-top: $space-tablet-between;
+        }
+        @include desktop-query {
+            width: 100%;
+        }
+    }
+
+    &__thumb {
+        max-width: 18rem;
+        border-radius: 0.25rem;
+    }
+    &__label {
+        color: $col-text-secondary;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.75rem;
+        margin-bottom: 0.1rem;
+    }
+    
+    &__input {
+        border: 1px solid $col-divider-line;
+        border-radius: 0.25rem;
+
+        padding: 0.75rem;
+        background-color: $col-form-field;
+
+        font-family: "AvenirNext";
+        font-size: 0.75rem;
+        font-weight: normal;
+        color: $col-text-primary;
+
+        @include tablet-query {
+            // flex-grow: 0;
+            // width: 15rem;
+        }
+
+        &:focus {
+            border: 2px solid $col-cta-primary;
+            outline: none; // Removes chrome's automatic outline on focused input fields
+        }
+    }
+    &__titlefield {
+        margin-bottom: $space-mobile-between;
+    }
+    &__descfield {
+        height: 5rem;
+    }
+
+    &__button {
+        width: 100%;
+        margin-bottom: $space-tablet-prehead;
+
+        background-image: url("../assets/icons/publish.svg");
+        background-size: 1.25rem;
+        background-repeat: no-repeat;
+        background-position-x: 0.7rem;
+        background-position-y: 0.55rem;
+
+
+        @include tablet-query {
+            order: 1;
+            width: 10rem;
+
+            margin: 0;
+        }
+    }
+    &__cancel {
+        color: $col-cta-primary;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.75rem;
+
+        margin-bottom: $space-tablet-between - 0.5rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        @include tablet-query {
+            margin: none;
+        }
     }
 }
