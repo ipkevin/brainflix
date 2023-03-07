@@ -21,31 +21,24 @@ function HomePage(){
     // State: The currently selected video
     const [selectedVideo, setSelectedVideo] = useState({});
 
+    // Holds video id from url param
     const { videoId } = useParams();
 
     useEffect(() => {
         getAllVideos(apiKey);
     }, []);
 
-    /*
-    * set a seoncd useEffect()
-    * if jokeid exists (from useParams) then get joke with th id
-    * else if jokelist.length then get joke with jokelist[0]
-    *   need to check jokelist.length cuz on 1st render there is no jokelist set until after the render sometime 
-    * depdencies on joke id and jokelist, but joke id is not a state.  It's an url param.
-    * by setting jokelist as a depedendncy, then once initial pull of jokelist completes, this useeffect will run again.
-    * 
-    * You can also set a conditional render in the rendering component area to check if selectedvideo is nonempty before rendering
-    * 
-    */
-
-    // Sets the selectedVideo assuming joke ID or videoListArr are non-empty 
+    // Sets the selectedVideo assuming joke ID or videoListArr are non-empty  
+    // Ensures that we don't try to get a video before we have the data required to retrieve one
+    // So on the very 1st render of homepage (ie, visiting / without anything in url), this will
+    // not run because neither videoID (no params) nor videoLIst are non-empty yet.
+    // The dependencies ensure getVIdeo will be run when we pass in the video ID and when videolist finishes initializing
     useEffect(() => {
         if (videoId) {
             getVideo(videoId);
             window.scrollTo(0,0);
         } else if (videoListArr.length > 0) {
-            getVideo(videoListArr[0].id);
+            getVideo(videoListArr[0].id); // sets default video if no video is specified in param
         }
     }, [videoId, videoListArr])
 
@@ -71,12 +64,10 @@ function HomePage(){
 
     return (
         <>
+            {/* Some of the components throw errors if passed empty selectedVideo, so either check for empty here or in the components. */}
             {Object.keys(selectedVideo).length !== 0 && <VideoPlayer selectedVideo={selectedVideo} />}
-            {/* <VideoPlayer selectedVideo={selectedVideo} /> */}
             <div className="flex-wrapper">
-            {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} />}
-            {/* Either you check for empty here or in the components.  Prob better here. */}
-            {/* <VideoDetails selectedVideo={selectedVideo} /> */}
+                {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} />}
                 <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} />
             </div>
         </>
