@@ -41,6 +41,11 @@
         @include tablet-query {
             width: 7.1rem;
         }
+
+        &-link {
+            display: flex;
+            align-items: center;
+        }
     }
     &__search {
         width: 50%;
