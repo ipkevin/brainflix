@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import "./Video.scss";
 
 
@@ -20,13 +20,10 @@ export default function Video(props) {
     }
 
     return (
-        <li
-            className="videoList__item"
-            onClick={() => {
-                props.videoListClickHandler(props.videoInfo.id);
-            }}
-        >
-            <img className="videoList__thumb" src={props.videoInfo.image} />
+        <li className="videoList__item">
+            <Link className="videoList__item-containing-link" to={`/video/${props.videoInfo.id}`}>
+                <img className="videoList__thumb" src={props.videoInfo.image} />
+            </Link>
             <div className="videoList__copy">
                 <p className="videoList__videotitle">{cropMobile()}</p>
                 <p className="videoList__author">{props.videoInfo.channel}</p>

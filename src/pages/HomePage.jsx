@@ -5,9 +5,6 @@ import VideoPlayer from '../components/VideoPlayer';
 import VideoDetails from '../components/VideoDetails';
 import VideoList from '../components/VideoList';
 
-import videoData from "../assets/data/videos.json";
-import videoDetailsData from "../assets/data/video-details.json";
-
 import axios from 'axios';
 
 export const apiKey = "7a59e70e-642c-4381-9207-b623e94cff56";
@@ -46,6 +43,7 @@ function HomePage(){
     useEffect(() => {
         if (videoId) {
             getVideo(videoId);
+            window.scrollTo(0,0);
         } else if (videoListArr.length > 0) {
             getVideo(videoListArr[0].id);
         }
@@ -65,21 +63,11 @@ function HomePage(){
         let theRequest = apiUrl+"/videos/"+videoId+"?api_key="+apiKey;
         axios.get(theRequest).then( (result) => {
             setSelectedVideo(result.data);
-            console.log("here is the result video: ", result.data);
         }).catch((err) => {
             console.log("video fetch error: ", err);
         })
     }
 
-    // Handler function to setSelectedVideo to match the video of the passed in id
-    // Will be used as handler when videolist item is clicked
-    function videoListClickHandler(videoID) {
-        let matchingVid = videoDetailsData.find((element) => {
-            return element.id === videoID;
-        });
-
-        setSelectedVideo(matchingVid);
-    }
 
     return (
         <>
@@ -89,7 +77,7 @@ function HomePage(){
             {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} />}
             {/* Either you check for empty here or in the components.  Prob better here. */}
             {/* <VideoDetails selectedVideo={selectedVideo} /> */}
-                <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} videoListClickHandler={videoListClickHandler} />
+                <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} />
             </div>
         </>
     );

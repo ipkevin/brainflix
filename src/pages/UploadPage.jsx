@@ -1,15 +1,20 @@
 import {Link} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
 import videoThumb from '../assets/images/upload-video-preview.jpg';
 import './UploadPage.scss';
 
-
 export default function UploadPage() {
+    function submitHandler(event) {
+        event.preventDefault();
+        alert("Video uploaded. Thank you!");
+        window.location.replace("/");
+    }
     return (
         <div className="flex-wrapper flex-wrapper--underlined">
             <div className="uploadform__wrapper">
                 <h1 className="uploadform__title">Upload Video</h1>
-                <form className="uploadform">
+                <form className="uploadform" onSubmit={submitHandler}>
                     <div className="uploadform__group-thumb">
                         <label className="uploadform__label">Video Thumbnail</label>
                         <img className="uploadform__thumb" src={videoThumb} alt="video thumbnail" />
