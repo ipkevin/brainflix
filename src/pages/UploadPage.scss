@@ -1,0 +1,10 @@
+.uploadform {
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    &__wrapper {
+        margin: 0 auto;
+    }
+}

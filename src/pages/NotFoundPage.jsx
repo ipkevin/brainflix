@@ -1,8 +1,10 @@
 function NotFoundPage() {
   return (
-    <div>
-        <h1>404 Not Found</h1>
+    <div className="flex-wrapper">
+      <div>
+        <h1>404: Page Not Found</h1>
         <img src="https://media3.giphy.com/media/9J7tdYltWyXIY/giphy.gif" alt="404 not found" />
+      </div>
     </div>
   )
 }
