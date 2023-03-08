@@ -24,7 +24,7 @@ export default function VideoDetails(props) {
                 </section>
                 <p className="description__body">{props.selectedVideo.description}</p>
             </article>
-            <CommentsArea selectedVideo={props.selectedVideo} postComment={props.postComment} />
+            <CommentsArea selectedVideo={props.selectedVideo} postComment={props.postComment} deleteComment={props.deleteComment} />
         </main>
     );
 }

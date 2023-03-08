@@ -86,12 +86,24 @@ function HomePage(){
         event.target.reset();
     }
 
+    function deleteComment(event, videoId, commentId) {
+        let theRequest = apiUrl+"/videos/"+videoId+"/comments/"+commentId+apiKey;
+
+        
+        axios.delete(theRequest).then( result => {
+            console.log("axios delete successful");
+            getVideo(videoId);
+        }).catch( error => {
+            console.log("axios delete error: ", error);
+        })
+    }
+
     return (
         <>
             {/* Some of the components throw errors if passed empty selectedVideo, so either check for empty here or in the components. */}
             {Object.keys(selectedVideo).length !== 0 && <VideoPlayer selectedVideo={selectedVideo} />}
             <div className="flex-wrapper">
-                {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} postComment={postComment} />}
+                {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} postComment={postComment} deleteComment={deleteComment} />}
                 <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} />
             </div>
         </>

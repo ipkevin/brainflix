@@ -47,7 +47,7 @@ export default function CommentsArea(props) {
             </div>
             <ul className="comments__list">
                 {props.selectedVideo.comments.sort( (a,b) => { return b.timestamp - a.timestamp }).map((element) => {
-                    return <Comment commentData={element} key={element.id} />;
+                    return <Comment commentData={element} key={element.id} deleteComment={props.deleteComment} selectedVideo={props.selectedVideo} />;
                 })}
             </ul>
         </section>
