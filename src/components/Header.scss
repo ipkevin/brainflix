@@ -63,11 +63,6 @@
         background-size: 1rem;
         background-color: $col-form-field;
 
-        font-family: "AvenirNext";
-        font-size: 0.75rem;
-        font-weight: normal;
-        color: $col-text-primary;
-
         @include tablet-query {
             flex-grow: 0;
             width: 15rem;
@@ -76,6 +71,13 @@
         &:focus {
             border: 2px solid $col-cta-primary;
             outline: none; // Removes chrome's automatic outline on focused input fields
+        }
+
+        &::placeholder {
+            font-family: "AvenirNext";
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: $col-text-primary;
         }
     }
     &__user-image {
