@@ -4,12 +4,13 @@ import "./Video.scss";
 
 export default function Video(props) {
 
-    // Crops the video title if screen size is smaller than 768px wide. Crops at 40 characters and does not crop
-    // in middle of words.
+    // Crops the video title and returns it if conditions are met (title > 40 chars and window is < 768)
+    // Uses props for shortenFlag to determine window size
     // Using fxn instead of CSS-only solution as all fully supported CSS solutions limit based on width of container not chars
     function cropMobile(){
         let fullTitle = props.videoInfo.title;
-        if ((fullTitle.length > 40) && (window.innerWidth < 768)) {
+
+        if (props.shortenFlag && (fullTitle.length > 40)) {
             // If last word would be truncated by char limit, then truncate before it.
             // Using 1 char longer to find blank allows for case where last word just fits inside limit.
             let lastSpace = fullTitle.lastIndexOf(" ",40); 
@@ -18,6 +19,7 @@ export default function Video(props) {
             return fullTitle;
         }
     }
+    let croppableTitle = cropMobile(); // React does not allow using functions directly in return html
 
     return (
         <li className="videoList__item">
@@ -25,7 +27,7 @@ export default function Video(props) {
                 <img className="videoList__thumb" src={props.videoInfo.image} />
             </Link>
             <div className="videoList__copy">
-                <p className="videoList__videotitle">{cropMobile()}</p>
+                <p className="videoList__videotitle">{croppableTitle}</p>
                 <p className="videoList__author">{props.videoInfo.channel}</p>
             </div>
         </li>
