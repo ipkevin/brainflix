@@ -5,6 +5,7 @@ import CommentsArea from "./CommentsArea";
 import "./VideoDetails.scss";
 
 export default function VideoDetails(props) {
+
     return (
         <main>
             <article className="description">
@@ -23,7 +24,7 @@ export default function VideoDetails(props) {
                 </section>
                 <p className="description__body">{props.selectedVideo.description}</p>
             </article>
-            <CommentsArea selectedVideo={props.selectedVideo} />
+            <CommentsArea selectedVideo={props.selectedVideo} postComment={props.postComment} />
         </main>
     );
 }

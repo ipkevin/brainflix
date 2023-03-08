@@ -7,7 +7,7 @@ import VideoList from '../components/VideoList';
 
 import axios from 'axios';
 
-export const apiKey = "7a59e70e-642c-4381-9207-b623e94cff56";
+export const apiKey = "?api_key=7a59e70e-642c-4381-9207-b623e94cff56";
 export const apiUrl = "https://project-2-api.herokuapp.com";
 
 
@@ -44,7 +44,7 @@ function HomePage(){
 
 
     function getAllVideos(apiKey) {
-        let theRequest = apiUrl+"/videos?api_key="+apiKey;
+        let theRequest = apiUrl+"/videos"+apiKey;
         axios.get(theRequest).then( (result) => {
             setVideoListArr(result.data);
         }).catch( (err) => {
@@ -53,7 +53,7 @@ function HomePage(){
     }
 
     function getVideo(videoId){
-        let theRequest = apiUrl+"/videos/"+videoId+"?api_key="+apiKey;
+        let theRequest = apiUrl+"/videos/"+videoId+apiKey;
         axios.get(theRequest).then( (result) => {
             setSelectedVideo(result.data);
         }).catch((err) => {
@@ -61,13 +61,37 @@ function HomePage(){
         })
     }
 
+    // handler function that sends comment from form into api, then sets the selectedVideo again
+    //
+    // For comments submission & deletion, u should actually use a function from the parent
+    // If u just changed the comments in local object, that would mean local object is out of sync with
+    // API's version.  And even if u make change on API too, u would still want to update the state var so that all locations that 
+    // use this video's info have the latest (even tho in this case only 1 place in your site uses the comments).
+    // This means u should actually create a handler function in the parent and pass it down.  The handler should include the setSelectedVideo fxn
+    function postComment(event, videoId) {
+        event.preventDefault();
+
+        let theRequest = apiUrl+"/videos/"+videoId+"/comments"+apiKey;
+        console.log("the comment data value: ", event.target.commentinput.value);
+        let commentObj = {
+            name: "Anonymous",
+            comment: event.target.commentinput.value
+        }
+        axios.post(theRequest, commentObj).then( result => {
+            console.log("axios comment post successful");
+            getVideo(videoId);
+        }).catch( error => {
+            console.log("axios comment post error: ", error);
+        });
+        event.target.reset();
+    }
 
     return (
         <>
             {/* Some of the components throw errors if passed empty selectedVideo, so either check for empty here or in the components. */}
             {Object.keys(selectedVideo).length !== 0 && <VideoPlayer selectedVideo={selectedVideo} />}
             <div className="flex-wrapper">
-                {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} />}
+                {Object.keys(selectedVideo).length !== 0 && <VideoDetails selectedVideo={selectedVideo} postComment={postComment} />}
                 <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} />
             </div>
         </>

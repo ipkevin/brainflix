@@ -96,6 +96,10 @@
         &::placeholder {
             font-family: "AvenirNext";
         }
+
+        &--error {
+            border-color: $col-form-error;
+        }
     }
     &__button {
         width: 100%;

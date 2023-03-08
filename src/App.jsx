@@ -13,15 +13,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />;
                 <Route path="/video/:videoId" element={<HomePage />} />;
+                <Route path="/video" element={<HomePage />} />;
                 <Route path="/upload" element={<UploadPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
-
-            {/* <VideoPlayer selectedVideo={selectedVideo} />
-            <div className="flex-wrapper">
-                <VideoDetails selectedVideo={selectedVideo} />
-                <VideoList videoListArr={videoListArr} selectedVideo={selectedVideo} videoListClickHandler={videoListClickHandler} />
-            </div> */}
         </BrowserRouter>
     );
 }
