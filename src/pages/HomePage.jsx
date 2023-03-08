@@ -40,7 +40,14 @@ function HomePage(){
         } else if (videoListArr.length > 0) {
             getVideo(videoListArr[0].id); // sets default video if no video is specified in param
         }
+
+        // Super compact way of writing above
+        // let id = videoId || videoListArr[0]?.id;
+        // if (id) {
+        //     getVideo(id);
+        // }
     }, [videoId, videoListArr])
+
 
 
     function getAllVideos(apiKey) {
