@@ -1,5 +1,4 @@
-
-import {useState,useEffect} from 'react';
+import { useState, useEffect } from "react";
 import Video from "./Video";
 
 import "./VideoList.scss";
@@ -13,7 +12,7 @@ export default function VideoList(props) {
     });
 
     // This state and toggleFlag function determine if window is small enough to crop videolist titles.  If so, then sets flag.
-    const [ shortenFlag, setShortenFlag ] = useState(false);
+    const [shortenFlag, setShortenFlag] = useState(false);
 
     function toggleFlag() {
         if (window.innerWidth < 768) {
@@ -22,8 +21,8 @@ export default function VideoList(props) {
             setShortenFlag(false);
         }
     }
-    
-    useEffect( () => {
+
+    useEffect(() => {
         window.addEventListener("resize", toggleFlag);
         return () => window.removeEventListener("resize", toggleFlag);
     }, []);
