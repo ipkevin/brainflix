@@ -22,20 +22,18 @@ const convertDate = function (dateIn) {
     }
 };
 
-export default function Comment(props) {
-    
-    const deleteComment = props.deleteComment;
+export default function Comment({selectedVideo, deleteComment, commentData}) {
 
     return (
         <li className="comments__wrapper">
             <img className="comments__image" alt="profile photo" src={blankPhoto} />
             <div className="comments__content">
                 <div className="comments__meta">
-                    <p className="comments__author">{props.commentData.name}</p>
-                    <p className="comments__date">{convertDate(props.commentData.timestamp)}</p>
+                    <p className="comments__author">{commentData.name}</p>
+                    <p className="comments__date">{convertDate(commentData.timestamp)}</p>
                 </div>
-                <p className="comments__text">{props.commentData.comment}</p>
-                <button className="comments__deleteButton" id="deletebutton" onClick={(event) => deleteComment(event, props.selectedVideo.id, props.commentData.id)}>Delete</button>
+                <p className="comments__text">{commentData.comment}</p>
+                <button className="comments__deleteButton" id="deletebutton" onClick={(event) => deleteComment(event, selectedVideo.id, commentData.id)}>Delete</button>
             </div>
         </li>
     );

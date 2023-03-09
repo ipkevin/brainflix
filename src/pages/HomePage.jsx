@@ -93,10 +93,10 @@ function HomePage(){
         event.target.reset();
     }
 
+    // Function to delete comments through the API. Will trigger a rerender as it re-requests the current video from API
     function deleteComment(event, videoId, commentId) {
         let theRequest = apiUrl+"/videos/"+videoId+"/comments/"+commentId+apiKey;
 
-        
         axios.delete(theRequest).then( result => {
             console.log("axios delete successful");
             getVideo(videoId);

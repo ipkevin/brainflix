@@ -4,10 +4,8 @@ import mohanPhoto from "../assets/images/Mohan-muruge.jpg";
 import "./CommentsArea.scss";
 
 // expects props to have a selectedVideo object in it
-export default function CommentsArea(props) {
-
-    // Handler function from parent for posting comment to api and refreshing selectedVideo
-    const postComment = props.postComment;
+export default function CommentsArea({selectedVideo, postComment, deleteComment}) {
+    // postComment is a handler function from parent for posting comment to api and refreshing selectedVideo
 
     // Function to validate input from form. Highlight fields that have a problem.
     // If form fields are all valid, then post to API and update site. Alert use of error otherwise.
@@ -25,7 +23,7 @@ export default function CommentsArea(props) {
 
         // Alert user which fields have a problem, or post the comment if no problems
         if (errorMsg === "") {
-            postCommentFxn(event, props.selectedVideo.id);
+            postCommentFxn(event, selectedVideo.id);
         } else {
             errorMsg = "There was a problem with your submission:\n\n"+errorMsg;
             alert(errorMsg);
@@ -34,7 +32,7 @@ export default function CommentsArea(props) {
 
     return (
         <section className="comments">
-            <h2 className="comments__count">{props.selectedVideo.comments.length} comments</h2>
+            <h2 className="comments__count">{selectedVideo.comments.length} comments</h2>
             <div className="comments__wrapper comments__wrapper-form">
                 <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
                 <div className="comments__content">
@@ -46,8 +44,8 @@ export default function CommentsArea(props) {
                 </div>
             </div>
             <ul className="comments__list">
-                {props.selectedVideo.comments.sort( (a,b) => { return b.timestamp - a.timestamp }).map((element) => {
-                    return <Comment commentData={element} key={element.id} deleteComment={props.deleteComment} selectedVideo={props.selectedVideo} />;
+                {selectedVideo.comments.sort( (a,b) => { return b.timestamp - a.timestamp }).map((element) => {
+                    return <Comment commentData={element} key={element.id} deleteComment={deleteComment} selectedVideo={selectedVideo} />;
                 })}
             </ul>
         </section>
