@@ -1,20 +1,17 @@
-import {Link} from 'react-router-dom';
-import {useState} from 'react'
-import {Navigate} from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-import videoThumb from '../assets/images/upload-video-preview.jpg';
-import './UploadPage.scss';
+import videoThumb from "../assets/images/upload-video-preview.jpg";
+import "./UploadPage.scss";
 
 export default function UploadPage() {
     const [modal, setModal] = useState("");
+    const navAway = useNavigate();
 
-    function submitHandler(event) {
+    async function submitHandler(event) {
         event.preventDefault();
-        // alert("Video uploaded. Thank you!");
-        setModal("show-modal")
-        setTimeout(<Navigate to="/" />, 1000);
-        //modal.classList.add("show-modal");
-
+        await setModal("show-modal");
+        setTimeout(() => navAway("/"), 2000);
     }
     return (
         <>
@@ -28,19 +25,24 @@ export default function UploadPage() {
                             <img className="uploadform__thumb" src={videoThumb} alt="video thumbnail" />
                         </div>
                         <div className="uploadform__group-inputs">
-                            <label className="uploadform__label" htmlFor="titlefield">Title your video</label>
+                            <label className="uploadform__label" htmlFor="titlefield">
+                                Title your video
+                            </label>
                             <input className="uploadform__titlefield uploadform__input" type="text" id="titlefield" name="titlefield" placeholder="Add a title to your video"></input>
-                            <label className="uploadform__label" htmlFor="descfield">Add a video description</label>
+                            <label className="uploadform__label" htmlFor="descfield">
+                                Add a video description
+                            </label>
                             <textarea className="uploadform__descfield uploadform__input" id="descfield" name="descfield" placeholder="Add a description to your video"></textarea>
                         </div>
                         <div className="uploadform__group-submit">
                             <button className="uploadform__button button">Publish</button>
-                            <Link to="/" className="uploadform__cancel">Cancel</Link>
+                            <Link to="/" className="uploadform__cancel">
+                                Cancel
+                            </Link>
                         </div>
                     </form>
                 </div>
             </div>
-
         </>
-    )
+    );
 }
