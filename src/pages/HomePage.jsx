@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 
-import VideoPlayer from '../components/VideoPlayer';
-import VideoDetails from '../components/VideoDetails';
-import VideoList from '../components/VideoList';
+import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
+import VideoDetails from '../components/VideoDetails/VideoDetails';
+import VideoList from '../components/VideoList/VideoList';
 
 import axios from 'axios';
 

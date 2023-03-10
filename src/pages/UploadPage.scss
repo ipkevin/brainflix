@@ -156,3 +156,24 @@
         }
     }
 }
+.uploadform__modal {
+    display: none;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10rem;
+    width: 15rem;
+    text-align: center;
+    color:white;
+    font-weight: 600;
+    font-size: 2rem;
+    z-index: 10;
+}
+.show-modal {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: $col-cta-hover;
+}
