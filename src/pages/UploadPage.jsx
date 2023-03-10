@@ -12,6 +12,7 @@ export default function UploadPage() {
         event.preventDefault();
         // alert("Video uploaded. Thank you!");
         setModal("show-modal")
+        setTimeout(<Navigate to="/" />, 1000);
         //modal.classList.add("show-modal");
 
     }
