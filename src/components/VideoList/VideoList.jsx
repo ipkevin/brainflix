@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Video from "./Video";
+import Video from "../Video/Video";
 
 import "./VideoList.scss";
 

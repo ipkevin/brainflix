@@ -1,6 +1,6 @@
-@use "../styles/partials/variables" as *;
-@use "../styles/partials/colors" as *;
-@use "../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
 
 .videoList {
     &__item {
@@ -31,10 +31,5 @@
     }
     &__videotitle {
         font-weight: 600;
-
-        // display: -webkit-box;
-        // overflow: hidden;
-        // -webkit-line-clamp: 2;
-        // -webkit-box-orient: vertical;
     }
 }

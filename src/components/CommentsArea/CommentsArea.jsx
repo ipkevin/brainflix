@@ -1,5 +1,5 @@
-import Comment from "./Comment";
-import mohanPhoto from "../assets/images/Mohan-muruge.jpg";
+import Comment from "../Comment/Comment";
+import mohanPhoto from "../../assets/images/Mohan-muruge.jpg";
 
 import "./CommentsArea.scss";
 

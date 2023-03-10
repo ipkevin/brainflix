@@ -1,4 +1,4 @@
-import blankPhoto from "../assets/images/profile-blank.png";
+import blankPhoto from "../../assets/images/profile-blank.png";
 import "./Comment.scss";
 
 // Converts timestamp to a "x sec/min/hour/days ago" string & returns it

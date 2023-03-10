@@ -1,7 +1,7 @@
-import likesIcon from "../assets/icons/likes.svg";
-import viewsIcon from "../assets/icons/views.svg";
+import likesIcon from "../../assets/icons/likes.svg";
+import viewsIcon from "../../assets/icons/views.svg";
 
-import CommentsArea from "./CommentsArea";
+import CommentsArea from "../CommentsArea/CommentsArea";
 import "./VideoDetails.scss";
 
 export default function VideoDetails({selectedVideo, postComment, deleteComment}) {
