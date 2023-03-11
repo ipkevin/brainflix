@@ -15,6 +15,7 @@ export default function CommentsArea({selectedVideo, postComment, deleteComment}
         setCommentVal(event.target.value);
     }
 
+    // validates form input
     const isValid = () => {
         if (commentVal === "" || commentVal.length < 5){
             return false;
@@ -25,34 +26,23 @@ export default function CommentsArea({selectedVideo, postComment, deleteComment}
 
     function validateAndPost(event, postCommentFxn){
         event.preventDefault();
-        let errorMsg = "";
-
-        // Validate the message field
-        if (event.target.commentinput.value === "" || event.target.commentinput.value.length < 4) {
-            errorMsg += "- Add a message (min 4 characters please)\n";
-            event.target.commentinput.classList.add("comments__text-field--error");
-        } else {
-            event.target.commentinput.classList.remove("comments__text-field--error");
+        if (isValid()) {
+            postCommentFxn(event,selectedVideo.id);
+            setCommentVal("");
         }
-
-        // Alert user which fields have a problem, or post the comment if no problems
-        if (errorMsg === "") {
-            postCommentFxn(event, selectedVideo.id);
-        } else {
-            errorMsg = "There was a problem with your submission:\n\n"+errorMsg;
-            alert(errorMsg);
-        }
-        setCommentVal("");
     }
 
+    // This form uses the isValid function to check in realtime whether input is valid
+    // Also, the ternary operators check if input is greater than 0 so that the warning messages do not appear until a user has typed something
     return (
         <section className="comments">
             <h2 className="comments__count">{selectedVideo.comments.length} comments</h2>
             <div className="comments__wrapper comments__wrapper-form">
                 <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
                 <div className="comments__content">
-                    <p className="comments__form-subtitle">Join the conversation 
-                    {(!isValid() && commentVal.length > 0) ? <span class="comments__error-msg">&nbsp;Minimum of 5 characters please</span> : ""}
+                    <p className="comments__form-subtitle">
+                    {(!isValid() && commentVal.length > 0) ? <span class="comments__error-msg">Minimum of 5 characters please&nbsp;</span> : ""}
+                    Join the conversation
                     </p>
                     <form className="comments__form-wrapper" onSubmit={(event) => {validateAndPost(event, postComment)}}>
                         <textarea className={`comments__text-field ${(!isValid() && commentVal.length > 0) ? "comments__text-field--error" : ""}`} id="commentinput" name="commentinput" placeholder="Add a new comment" onChange={handleCommentChange} value={commentVal}></textarea>

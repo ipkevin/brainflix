@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
+import axios from 'axios';
 
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
 import VideoDetails from '../components/VideoDetails/VideoDetails';
 import VideoList from '../components/VideoList/VideoList';
-
-import axios from 'axios';
 
 export const apiKey = "?api_key=7a59e70e-642c-4381-9207-b623e94cff56";
 export const apiUrl = "https://project-2-api.herokuapp.com";

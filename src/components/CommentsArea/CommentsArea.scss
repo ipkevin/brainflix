@@ -105,6 +105,13 @@
         &--error {
             border-color: $col-form-error;
         }
+
+        &::after {
+            content:"hello!!";
+            display: block;
+            width: 3rem;
+            height: 3rem;
+        }
     }
     &__button {
         width: 100%;
