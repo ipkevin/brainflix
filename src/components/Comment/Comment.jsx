@@ -5,14 +5,15 @@ import "./Comment.scss";
 const convertDate = function (dateIn) {
     let currDate = new Date();
     let commDate = new Date(dateIn);
-    const elapsed = currDate - commDate;
+    const elapsed = currDate - commDate; // just posted comments show -1 second, so this accounts for that
     const oneSec = 1000;
     const oneMin = 60 * oneSec;
     const oneHour = 60 * oneMin;
     const oneDay = 24 * oneHour;
 
     if (elapsed < oneMin) {
-        return `${Math.floor(elapsed / oneSec)} seconds ago`;
+        return `${ (Math.floor(elapsed / oneSec)) >= 0 ? Math.floor(elapsed / oneSec) : 0} seconds ago`;
+        // just posted comments sometimes return -1, so ternary used to display 0 instead
     } else if (elapsed < oneHour) {
         return `${Math.floor(elapsed / oneMin)} minutes ago`;
     } else if (elapsed < oneDay) {

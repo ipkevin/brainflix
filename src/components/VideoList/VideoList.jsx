@@ -3,8 +3,8 @@ import Video from "../Video/Video";
 
 import "./VideoList.scss";
 
-// Expecting that props has a videoListArr array that contains all of the video objects with minimal details
 export default function VideoList({videoListArr, selectedVideo}) {
+
     // filter the video array to remove the currently selected video
     let currID = selectedVideo.id;
     const filteredArr = videoListArr.filter((element) => {

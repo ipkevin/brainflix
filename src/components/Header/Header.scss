@@ -69,8 +69,8 @@
         }
 
         &:focus {
-            border: 2px solid $col-cta-primary;
-            outline: none; // Removes chrome's automatic outline on focused input fields
+            outline: 2px solid $col-cta-primary;
+            
         }
 
         &::placeholder {
