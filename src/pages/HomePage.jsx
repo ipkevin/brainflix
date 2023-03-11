@@ -90,6 +90,7 @@ function HomePage(){
         }).catch( error => {
             console.log("axios comment post error: ", error);
         });
+        console.log("this is the event and event target before reset: ", event, " -- ", event.target);
         event.target.reset();
     }
 

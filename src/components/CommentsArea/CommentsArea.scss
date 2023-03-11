@@ -75,6 +75,10 @@
             gap: $space-tablet-between;
         }
     }
+    &__error-msg {
+        text-transform: capitalize;
+        color: $col-form-error;
+    }
     &__text-field {
         outline: none;
         border: 2px solid $col-divider-line;
@@ -116,6 +120,10 @@
 
         &:hover {
             background-color: $col-cta-hover;
+        }
+        &:disabled {
+            background-color: gray;
+            color: $col-text-secondary;
         }
     }
 }
