@@ -8,6 +8,7 @@ import VideoList from '../components/VideoList/VideoList';
 
 export const apiKey = "?api_key=7a59e70e-642c-4381-9207-b623e94cff56";
 export const apiUrl = "https://project-2-api.herokuapp.com";
+export const apiUrlServ = "http://localhost:8080";
 
 
 
@@ -49,19 +50,30 @@ function HomePage(){
 
 
 
-    function getAllVideos(apiKey) {
-        let theRequest = apiUrl+"/videos"+apiKey;
+    // function getAllVideos(apiKey) {
+    //     let theRequest = apiUrl+"/videos"+apiKey;
+    //     axios.get(theRequest).then( (result) => {
+    //         setVideoListArr(result.data);
+    //     }).catch( (err) => {
+    //         console.log("videolist fetch error: ", err);
+    //     })
+    // }
+
+    function getAllVideos() {
+        let theRequest = apiUrlServ+"/videos";
         axios.get(theRequest).then( (result) => {
             setVideoListArr(result.data);
+            console.log(result);
         }).catch( (err) => {
             console.log("videolist fetch error: ", err);
         })
     }
 
     function getVideo(videoId){
-        let theRequest = apiUrl+"/videos/"+videoId+apiKey;
+        let theRequest = apiUrlServ+"/videos/"+videoId;
         axios.get(theRequest).then( (result) => {
             setSelectedVideo(result.data);
+            console.log("single video result: ", result)
         }).catch((err) => {
             console.log("video fetch error: ", err);
         })

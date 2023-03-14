@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import videoThumb from "../assets/images/upload-video-preview.jpg";
+// import videoThumb from "../assets/images/upload-video-preview.jpg";
+// import videoThumb from "http://localhost:8080/upload-video-preview.jpg";
 import "./UploadPage.scss";
 
 export default function UploadPage() {
@@ -22,7 +23,8 @@ export default function UploadPage() {
                     <form className="uploadform" onSubmit={submitHandler}>
                         <div className="uploadform__group-thumb">
                             <label className="uploadform__label">Video Thumbnail</label>
-                            <img className="uploadform__thumb" src={videoThumb} alt="video thumbnail" />
+                            {/* <img className="uploadform__thumb" src={videoThumb} alt="video thumbnail" /> */}
+                            <img className="uploadform__thumb" src="http://localhost:8080/upload-video-preview.jpg" alt="video thumbnail" />
                         </div>
                         <div className="uploadform__group-inputs">
                             <label className="uploadform__label" htmlFor="titlefield">
