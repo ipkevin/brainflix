@@ -6,8 +6,6 @@ import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
 import VideoDetails from '../components/VideoDetails/VideoDetails';
 import VideoList from '../components/VideoList/VideoList';
 
-export const apiKey = "?api_key=7a59e70e-642c-4381-9207-b623e94cff56";
-export const apiUrl = "https://project-2-api.herokuapp.com";
 export const apiUrlServ = "http://localhost:8080";
 
 
@@ -49,16 +47,6 @@ function HomePage(){
     }, [videoId, videoListArr])
 
 
-
-    // function getAllVideos(apiKey) {
-    //     let theRequest = apiUrl+"/videos"+apiKey;
-    //     axios.get(theRequest).then( (result) => {
-    //         setVideoListArr(result.data);
-    //     }).catch( (err) => {
-    //         console.log("videolist fetch error: ", err);
-    //     })
-    // }
-
     function getAllVideos() {
         let theRequest = apiUrlServ+"/videos";
         axios.get(theRequest).then( (result) => {
@@ -89,7 +77,6 @@ function HomePage(){
     function postComment(event, videoId) {
         event.preventDefault();
 
-        // let theRequest = apiUrl+"/videos/"+videoId+"/comments"+apiKey;
         let theRequest = apiUrlServ+"/videos/"+videoId+"/comments";
         console.log("the comment data value: ", event.target.commentinput.value);
         let commentObj = {
@@ -108,7 +95,7 @@ function HomePage(){
 
     // Function to delete comments through the API. Will trigger a rerender as it re-requests the current video from API
     function deleteComment(event, videoId, commentId) {
-        let theRequest = apiUrl+"/videos/"+videoId+"/comments/"+commentId+apiKey;
+        let theRequest = apiUrlServ+"/videos/"+videoId+"/comments/"+commentId;
 
         axios.delete(theRequest).then( result => {
             console.log("axios delete successful");
