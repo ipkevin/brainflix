@@ -89,7 +89,8 @@ function HomePage(){
     function postComment(event, videoId) {
         event.preventDefault();
 
-        let theRequest = apiUrl+"/videos/"+videoId+"/comments"+apiKey;
+        // let theRequest = apiUrl+"/videos/"+videoId+"/comments"+apiKey;
+        let theRequest = apiUrlServ+"/videos/"+videoId+"/comments";
         console.log("the comment data value: ", event.target.commentinput.value);
         let commentObj = {
             name: "Anonymous",
