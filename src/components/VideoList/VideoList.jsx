@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Video from "../Video/Video";
 
 import "./VideoList.scss";

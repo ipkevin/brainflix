@@ -2,6 +2,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+main {
+    // Making main grow to account for videos with short descriptions and titles and no comments (ie, user submitted vids)
+    // Otherwise, content area would not take up enough space
+    @include desktop-query {
+        flex-grow: 1;
+    }
+}
 .description {
     &__title {
         font-weight: 600;
