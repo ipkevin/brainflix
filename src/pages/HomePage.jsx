@@ -23,7 +23,7 @@ function HomePage(){
     const { videoId } = useParams();
 
     useEffect(() => {
-        getAllVideos(apiKey);
+        getAllVideos();
     }, []);
 
     // Sets the selectedVideo assuming joke ID or videoListArr are non-empty  
