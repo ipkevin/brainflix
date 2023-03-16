@@ -28,9 +28,6 @@ function HomePage(){
 
     // Sets the selectedVideo assuming joke ID or videoListArr are non-empty  
     // Ensures that we don't try to get a video before we have the data required to retrieve one
-    // So on the very 1st render of homepage (ie, visiting / without anything in url), this will
-    // not run because neither videoID (no params) nor videoLIst are non-empty yet.
-    // The dependencies ensure getVIdeo will be run when we pass in the video ID and when videolist finishes initializing
     useEffect(() => {
         if (videoId) {
             getVideo(videoId);
@@ -39,11 +36,6 @@ function HomePage(){
             getVideo(videoListArr[0].id); // sets default video if no video is specified in param
         }
 
-        // Super compact way of writing above
-        // let id = videoId || videoListArr[0]?.id;
-        // if (id) {
-        //     getVideo(id);
-        // }
     }, [videoId, videoListArr])
 
 
@@ -68,12 +60,6 @@ function HomePage(){
     }
 
     // handler function that sends comment from form into api, then sets the selectedVideo again
-    //
-    // For comments submission & deletion, u should actually use a function from the parent
-    // If u just changed the comments in local object, that would mean local object is out of sync with
-    // API's version.  And even if u make change on API too, u would still want to update the state var so that all locations that 
-    // use this video's info have the latest (even tho in this case only 1 place in your site uses the comments).
-    // This means u should actually create a handler function in the parent and pass it down.  The handler should include the setSelectedVideo fxn
     function postComment(event, videoId) {
         event.preventDefault();
 
