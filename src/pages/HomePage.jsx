@@ -51,7 +51,7 @@ function HomePage(){
         let theRequest = apiUrlServ+"/videos";
         axios.get(theRequest).then( (result) => {
             setVideoListArr(result.data);
-            console.log(result);
+            // console.log(result);
         }).catch( (err) => {
             console.log("videolist fetch error: ", err);
         })
@@ -61,7 +61,7 @@ function HomePage(){
         let theRequest = apiUrlServ+"/videos/"+videoId;
         axios.get(theRequest).then( (result) => {
             setSelectedVideo(result.data);
-            console.log("single video result: ", result)
+            // console.log("single video result: ", result)
         }).catch((err) => {
             console.log("video fetch error: ", err);
         })
@@ -78,18 +78,16 @@ function HomePage(){
         event.preventDefault();
 
         let theRequest = apiUrlServ+"/videos/"+videoId+"/comments";
-        console.log("the comment data value: ", event.target.commentinput.value);
         let commentObj = {
             name: "Anonymous",
             comment: event.target.commentinput.value
         }
         axios.post(theRequest, commentObj).then( result => {
-            console.log("axios comment post successful");
+            // console.log("axios comment post successful");
             getVideo(videoId);
         }).catch( error => {
             console.log("axios comment post error: ", error);
         });
-        console.log("this is the event and event target before reset: ", event, " -- ", event.target);
         event.target.reset();
     }
 
@@ -98,7 +96,7 @@ function HomePage(){
         let theRequest = apiUrlServ+"/videos/"+videoId+"/comments/"+commentId;
 
         axios.delete(theRequest).then( result => {
-            console.log("axios delete successful");
+            // console.log("axios delete successful");
             getVideo(videoId);
         }).catch( error => {
             console.log("axios delete error: ", error);
