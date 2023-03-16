@@ -13,7 +13,7 @@ main {
     &__title {
         font-weight: 600;
         padding-bottom: $space-mobile-between;
-        border-bottom: 2px solid $col-divider-line;
+        border-bottom: 1px solid $col-divider-line;
 
         @include tablet-query {
             border-bottom: none;
@@ -35,7 +35,7 @@ main {
         gap: $space-mobile-between;
 
         padding: $space-mobile-between 0;
-        border-bottom: 2px solid $col-divider-line;
+        border-bottom: 1px solid $col-divider-line;
 
         @include tablet-query {
             flex-wrap: nowrap;

@@ -76,7 +76,7 @@ h3 {
     }
 
     &--underlined {
-        border-top: 2px solid $col-divider-line;
+        border-top: 1px solid $col-divider-line;
 
         @include tablet-query {
             padding-bottom: $space-tablet-between;

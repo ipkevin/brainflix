@@ -6,7 +6,7 @@
     @include desktop-query {
         padding-left: $space-tablet-between;
         padding-bottom: calc($space-tablet-prehead * 2);
-        border-left: 2px solid $col-divider-line;
+        border-left: 1px solid $col-divider-line;
     }
     &__subtitle {
         text-transform: uppercase;

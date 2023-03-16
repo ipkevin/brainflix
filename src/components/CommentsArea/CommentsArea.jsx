@@ -41,7 +41,7 @@ export default function CommentsArea({selectedVideo, postComment, deleteComment}
                 <img className="comments__image comments__image--form" alt="profile photo" src={mohanPhoto} />
                 <div className="comments__content">
                     <p className="comments__form-subtitle">
-                    {(!isValid() && commentVal.length > 0) ? <span class="comments__error-msg">Minimum of 5 characters please</span> : "Join the conversation"}
+                    {(!isValid() && commentVal.length > 0) ? <span className="comments__error-msg">Minimum of 5 characters please</span> : "Join the conversation"}
                     </p>
                     <form className="comments__form-wrapper" onSubmit={(event) => {validateAndPost(event, postComment)}}>
                         <textarea className={`comments__text-field ${(!isValid() && commentVal.length > 0) ? "comments__text-field--error" : ""}`} id="commentinput" name="commentinput" placeholder="Add a new comment" onChange={handleCommentChange} value={commentVal}></textarea>

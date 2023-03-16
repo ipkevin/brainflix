@@ -17,7 +17,7 @@
         list-style: none;
 
         padding: $space-mobile-between 0;
-        border-bottom: 2px solid $col-divider-line;
+        border-bottom: 1px solid $col-divider-line;
 
         @include tablet-query {
             padding: $space-tablet-between 0;
@@ -80,14 +80,19 @@
         color: $col-form-error;
     }
     &__text-field {
-        outline: none;
-        border: 2px solid $col-divider-line;
+        border: none;
+        outline: 1px solid $col-divider-line;
         border-radius: 0.25rem;
 
         background-color: $col-form-field;
 
         min-height: 6rem;
         padding: 0.75rem;
+
+        &:focus {
+            outline: 2px solid $col-cta-primary;
+
+        }
 
         @include tablet-query {
             min-height: 1px;
@@ -103,7 +108,10 @@
         }
 
         &--error {
-            border-color: $col-form-error;
+            outline: 2px solid $col-form-error;
+            &:focus {
+                outline: 2px solid $col-form-error;
+            }
         }
 
         &::after {

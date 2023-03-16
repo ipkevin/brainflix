@@ -25,7 +25,7 @@
         @include tablet-query{
             font-weight: bold;
             padding-bottom: $space-tablet-between;
-            border-bottom: 2px solid $col-divider-line;
+            border-bottom: 1px solid $col-divider-line;
             margin-bottom: $space-tablet-prehead;
         }
         @include desktop-query{
@@ -70,7 +70,7 @@
             justify-content: flex-end;
             align-items:baseline;
             gap: 5rem;
-            border-top: 2px solid $col-divider-line;
+            border-top: 1px solid $col-divider-line;
             padding-top: $space-tablet-between;
         }
         @include desktop-query {
