@@ -40,6 +40,8 @@ export default function UploadPage() {
     
     function submitHandler(event) {
         event.preventDefault();
+
+        // Can replace this with formData, but just put relevant fields in
         let videoObj = {
             id: uuid(),
             title: event.target.titlefield.value,
@@ -53,12 +55,33 @@ export default function UploadPage() {
             timestamp: Date.now(),
             comments: []
         }
-        axios.post(`${apiUrlServ}/videos`, videoObj)
+        
+        let formData = new FormData();
+        formData.append("image", event.target.imagefield.files[0]);
+
+        // Combine the axios calls into a single one that
+        // handles everything. Since all will be in a formData object.
+        axios.post(`${apiUrlServ}/singleimage`, formData)
             .then(result => {
-                thankAndForward();
-            }).catch(error => {
-                alert("Error posting: ",error);
-            });        
+                console.log("image sent successfully");
+
+                // if vid upload succeeds, then do text video setup
+                axios.post(`${apiUrlServ}/videos`, videoObj)
+                .then(result => {
+                    thankAndForward();
+                }).catch(error => {
+                    alert("Error posting: ",error);
+                });        
+    
+
+            }).catch(err => {
+                alert("error sending image", err);
+                console.log("this is the error returned: ", err);
+                console.log("this is event.target.files: ", event.target.imagefield.files[0]);
+                console.log("image file props: ", event.target.imagefield.files[0].size);
+                console.log("this is the event", event.target);
+                return;
+            })
     }
 
 
@@ -69,9 +92,10 @@ export default function UploadPage() {
             <div className="flex-wrapper flex-wrapper--underlined">
                 <div className="uploadform__wrapper">
                     <h1 className="uploadform__title">Upload Video</h1>
-                    <form className="uploadform" onSubmit={submitHandler}>
+                    <form className="uploadform" encType="multipart/form-data" onSubmit={submitHandler}>
                         <div className="uploadform__group-thumb">
                             <label className="uploadform__label">Video Thumbnail</label>
+                            <input type="file" className="uploadform__file" name="imagefield" id="imagefield"></input>
                             <img className="uploadform__thumb" src="http://localhost:8080/upload-video-preview.jpg" alt="video thumbnail" />
                         </div>
                         <div className="uploadform__group-inputs">
