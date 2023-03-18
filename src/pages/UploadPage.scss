@@ -79,8 +79,13 @@
     }
 
     &__thumb {
-        max-width: 18rem;
+        width: 18rem;
         border-radius: 0.25rem;
+        margin-top: 0.3rem;
+
+        @include desktop-query {
+            width: 15.1rem;
+        }
     }
     &__label {
         color: $col-text-secondary;
