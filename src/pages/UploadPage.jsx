@@ -1,11 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
 import axios from 'axios';
 import { apiUrlServ } from './HomePage';
 
-// import videoThumb from "../assets/images/upload-video-preview.jpg";
-// import videoThumb from "http://localhost:8080/upload-video-preview.jpg";
 import "./UploadPage.scss";
 
 export default function UploadPage() {
@@ -17,7 +14,7 @@ export default function UploadPage() {
 
     async function thankAndForward(){
         await setModal("show-modal");
-        setTimeout(() => navAway("/"), 3000);
+        setTimeout(() => navAway("/"), 2000);
     }
     function handleTitleChange(event) {
         setTitleField(event.target.value);
@@ -40,48 +37,20 @@ export default function UploadPage() {
     
     function submitHandler(event) {
         event.preventDefault();
-
-        // Can replace this with formData, but just put relevant fields in
-        let videoObj = {
-            id: uuid(),
-            title: event.target.titlefield.value,
-            channel: "Moo",
-            image: "http://localhost:8080/upload-video-preview.jpg",
-            description: event.target.descfield.value,
-            views: "1,000,000",
-            likes: "188.888",
-            duration: "1:23",
-            video: "https://project-2-api.herokuapp.com/stream",
-            timestamp: Date.now(),
-            comments: []
-        }
         
+        // contains all the submission data including the image binary
         let formData = new FormData();
         formData.append("image", event.target.imagefield.files[0]);
+        formData.append("description", event.target.descfield.value);
+        formData.append("title", event.target.titlefield.value);
 
-        // Combine the axios calls into a single one that
-        // handles everything. Since all will be in a formData object.
-        axios.post(`${apiUrlServ}/singleimage`, formData)
-            .then(result => {
-                console.log("image sent successfully");
-
-                // if vid upload succeeds, then do text video setup
-                axios.post(`${apiUrlServ}/videos`, videoObj)
-                .then(result => {
-                    thankAndForward();
-                }).catch(error => {
-                    alert("Error posting: ",error);
-                });        
     
-
-            }).catch(err => {
-                alert("error sending image", err);
-                console.log("this is the error returned: ", err);
-                console.log("this is event.target.files: ", event.target.imagefield.files[0]);
-                console.log("image file props: ", event.target.imagefield.files[0].size);
-                console.log("this is the event", event.target);
-                return;
-            })
+        axios.post(`${apiUrlServ}/videos`, formData)
+        .then(result => {
+            thankAndForward();
+        }).catch(error => {
+            alert("Error posting: ",error);
+        });        
     }
 
 
@@ -94,8 +63,8 @@ export default function UploadPage() {
                     <h1 className="uploadform__title">Upload Video</h1>
                     <form className="uploadform" encType="multipart/form-data" onSubmit={submitHandler}>
                         <div className="uploadform__group-thumb">
-                            <label className="uploadform__label">Video Thumbnail</label>
-                            <input type="file" className="uploadform__file" name="imagefield" id="imagefield"></input>
+                            <label className="uploadform__label">Video Thumbnail (3MB limit)</label>
+                            <input type="file" className="uploadform__file" accept="image/*" name="imagefield" id="imagefield"></input> 
                             <img className="uploadform__thumb" src="http://localhost:8080/upload-video-preview.jpg" alt="video thumbnail" />
                         </div>
                         <div className="uploadform__group-inputs">
