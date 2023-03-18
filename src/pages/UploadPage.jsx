@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import { apiUrlServ } from './HomePage';
 
@@ -10,12 +10,17 @@ export default function UploadPage() {
     const [titleField, setTitleField] = useState("");
     const [descField, setDescField] = useState("");
 
+    // For image preview
+    const [file, setFile] = useState(null);
+    const [fileDataUrl, setFileDataUrl] = useState(null);
+
     const navAway = useNavigate();
 
     async function thankAndForward(){
         await setModal("show-modal");
         setTimeout(() => navAway("/"), 2000);
     }
+
     function handleTitleChange(event) {
         setTitleField(event.target.value);
     }
@@ -31,10 +36,24 @@ export default function UploadPage() {
         return false;
     }
     function isValid() {
-        if (isTitleValid() && isDescValid()) return true;
+        if (isTitleValid() && isDescValid() && isImageValid()) return true;
         return false;
     }
+    const imageMimeType = /image\/(png|jpg|jpeg|jfif|webp|gif)/i;
     
+    function isImageValid() {
+        if (file && file.type.match(imageMimeType)) { return true };
+        return false;
+    }
+    function handleImageChange(event) {
+        const file = event.target.files[0]
+        if (!file.type.match(imageMimeType)) {
+            alert("Image mime type is not valid");
+            return;
+        }
+        setFile(file);
+    }
+
     function submitHandler(event) {
         event.preventDefault();
         
@@ -53,6 +72,26 @@ export default function UploadPage() {
         });        
     }
 
+    // Show preview of selected poster image
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (file) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const {result} = e.target;
+                if (result && !isCancel) {
+                    setFileDataUrl(result)
+                }
+            }
+            fileReader.readAsDataURL(file);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+    }, [file]);
 
 
     return (
@@ -64,8 +103,8 @@ export default function UploadPage() {
                     <form className="uploadform" encType="multipart/form-data" onSubmit={submitHandler}>
                         <div className="uploadform__group-thumb">
                             <label className="uploadform__label">Video Thumbnail (3MB limit)</label>
-                            <input type="file" className="uploadform__file" accept="image/*" name="imagefield" id="imagefield"></input> 
-                            <img className="uploadform__thumb" src="http://localhost:8080/upload-video-preview.jpg" alt="video thumbnail" />
+                            <input type="file" className="uploadform__file" accept="image/*" onChange={handleImageChange} name="imagefield" id="imagefield"></input> 
+                            {fileDataUrl ? <img className="uploadform__thumb" src={fileDataUrl} alt="video thumbnail" /> : null }
                         </div>
                         <div className="uploadform__group-inputs">
                             <label className="uploadform__label" htmlFor="titlefield">

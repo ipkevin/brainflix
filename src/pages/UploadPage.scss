@@ -37,7 +37,7 @@
     &__group-thumb {
         display: flex;
         flex-flow: column nowrap;
-        justify-content: center;
+        justify-content: flex-top;
 
         margin-bottom: $space-tablet-between;
 
@@ -79,12 +79,13 @@
     }
 
     &__thumb {
-        width: 18rem;
+        max-width: 18rem;
         border-radius: 0.25rem;
         margin-top: 0.3rem;
 
         @include desktop-query {
-            width: 15.1rem;
+            max-width: fit-content;
+            max-height: 7.9rem;
         }
     }
     &__label {
